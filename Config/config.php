@@ -32,7 +32,6 @@ return [
                     \Mautic\EmailBundle\Model\TransportType::FIELD_USER      => true,
                     \Mautic\EmailBundle\Model\TransportType::FIELD_PASSWORD      => true,
                     \Mautic\EmailBundle\Model\TransportType::FIELD_PORT      => true,
-                    \Mautic\EmailBundle\Model\TransportType::FIELD_ENCRYPTION      => true,
                 ],
                 'methodCalls'  => [
                     'setUsername' => ['%mautic.mailer_user%'],
