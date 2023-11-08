@@ -6,7 +6,6 @@ use Mautic\EmailBundle\Model\TransportCallback;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Translation\TranslatorInterface;
 use Mautic\EmailBundle\Swiftmailer\Transport\CallbackTransportInterface;
-use Symfony\Component\HttpFoundation\Request;
 
 class PostalTransport extends \Swift_SmtpTransport implements CallbackTransportInterface
 {
