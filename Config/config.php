@@ -8,43 +8,27 @@
 return [
     'name' => 'Mautic Postal Server Mailer Bundle',
     'description' => 'Integrate Swiftmailer transport for Postal Server API',
-    'author' => 'Lucas Costa',
+    'author' => 'Lucas Costa & Alexander Cus',
     'version' => '1.0.0',
 
     'services' => [
         'other' => [
-            'mautic.transport.postal_api' => [
-                'class' => \MauticPlugin\MauticPostalServerBundle\Swiftmailer\Transport\PostalApiTransport::class,
+            'mautic.transport.postal' => [
+                'class' => \MauticPlugin\MauticPostalServerBundle\Swiftmailer\Transport\PostalTransport::class,
                 'serviceAlias' => 'swiftmailer.mailer.transport.%s',
-                'arguments' => [
-                    'mautic.email.model.transport_callback',
-                    'mautic.postal.guzzle.client',
+                'arguments'    => [
                     'translator',
-                    '%mautic.mailer_postal_max_batch_limit%',
-                    '%mautic.mailer_postal_batch_recipient_count%',
-                    '%mautic.mailer_postal_webhook_signing_key%',
+                    'monolog.logger.mautic',
+                    'mautic.email.model.transport_callback',
+                    '%mautic.mailer_host%',
+                    '%mautic.mailer_port%',
+                    '%mautic.mailer_encryption%',
                 ],
-                'methodCalls' => [
-                    'setApiKey' => ['%mautic.mailer_api_key%'],
-                    'setDomain' => ['%mautic.mailer_host%',],
-                    'setRegion' => ['%mautic.mailer_postal_region%'],
+                'methodCalls'  => [
+                    'setUsername' => ['%mautic.mailer_user%'],
+                    'setPassword' => ['%mautic.mailer_password%'],
                 ],
-                'tag' => 'mautic.email_transport',
-                'tagArguments' => [
-                    \Mautic\EmailBundle\Model\TransportType::TRANSPORT_ALIAS => 'mautic.email.config.mailer_transport.postal_api',
-                    \Mautic\EmailBundle\Model\TransportType::FIELD_HOST => true,
-                    \Mautic\EmailBundle\Model\TransportType::FIELD_API_KEY => true,
-                ],
-            ],
-            'mautic.postal.guzzle.client' => [
-                'class' => 'GuzzleHttp\Client',
             ],
         ],
-    ],
-    'parameters' => [
-        'mailer_postal_max_batch_limit' => 4500,
-        'mailer_postal_batch_recipient_count' => 1000,
-        'mailer_postal_region' => 'us',
-        'mailer_postal_webhook_signing_key' => '',
     ],
 ];
