@@ -3,7 +3,6 @@
 namespace MauticPlugin\MauticPostalServerBundle\Swiftmailer\Transport;
 
 use Mautic\EmailBundle\Model\TransportCallback;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Translation\TranslatorInterface;
 
@@ -16,11 +15,6 @@ class PostalTransport extends \Swift_SmtpTransport implements CallbackTransportI
     private $translator;
 
     /**
-     * @var LoggerInterface
-     */
-    private $logger;
-
-    /**
      * @var TransportCallback
      */
     private $transportCallback;
@@ -28,15 +22,15 @@ class PostalTransport extends \Swift_SmtpTransport implements CallbackTransportI
     /**
      * PostalTransport constructor.
      */
-    public function __construct(TranslatorInterface $translator, LoggerInterface $logger, TransportCallback $transportCallback, $host = 'localhost', $port = 25, $security = 'tls')
+    public function __construct(TranslatorInterface $translator, TransportCallback $transportCallback, $host = 'localhost', $port = 25, $security = 'tls', $username = null, $password = null)
     {
         $this->translator        = $translator;
-        $this->logger            = $logger;
         $this->transportCallback = $transportCallback;
 
         parent::__construct($host, $port, $security);
-
         $this->setAuthMode('login');
+        $this->setUsername($username);
+        $this->setPassword($password);
     }
 
     /**
@@ -54,8 +48,6 @@ class PostalTransport extends \Swift_SmtpTransport implements CallbackTransportI
      */
     public function processCallbackRequest(Request $request)
     {
-        $this->logger->debug('Receiving webhook from Postal: ');
-
         $postData = json_decode($request->getContent(), true);
 
         $event    = $postData['event'];
