@@ -7,7 +7,7 @@
 
 return [
     'name' => 'Mautic Postal Server Mailer Bundle',
-    'description' => 'Integrate Swiftmailer transport for Postal Server API',
+    'description' => 'Integrate Swiftmailer transport for Postal Server',
     'author' => 'Lucas Costa & Alexander Cus',
     'version' => '1.0.0',
 

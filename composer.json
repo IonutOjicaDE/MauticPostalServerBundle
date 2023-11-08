@@ -1,6 +1,6 @@
 {
     "name": "pacerino/mautic-postal-server-bundle",
-    "description": "Integrate Swiftmailer transport for Postal Server API",
+    "description": "Integrate Swiftmailer transport for Postal Server",
     "type": "library",
     "authors": [
         {
