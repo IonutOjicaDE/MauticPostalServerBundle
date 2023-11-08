@@ -5,6 +5,8 @@ namespace MauticPlugin\MauticPostalServerBundle\Swiftmailer\Transport;
 use Mautic\EmailBundle\Model\TransportCallback;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Translation\TranslatorInterface;
+use Mautic\EmailBundle\Swiftmailer\Transport\CallbackTransportInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class PostalTransport extends \Swift_SmtpTransport implements CallbackTransportInterface
 {
@@ -22,7 +24,7 @@ class PostalTransport extends \Swift_SmtpTransport implements CallbackTransportI
     /**
      * PostalTransport constructor.
      */
-    public function __construct(TranslatorInterface $translator, TransportCallback $transportCallback, $host = 'localhost', $port = 25, $security = 'tls', $username = null, $password = null)
+    public function __construct(TranslatorInterface $translator, TransportCallback $transportCallback, $host = 'localhost', $port = 25, $security = null, $username = null, $password = null)
     {
         $this->translator        = $translator;
         $this->transportCallback = $transportCallback;
