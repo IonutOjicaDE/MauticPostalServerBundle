@@ -24,6 +24,7 @@ return [
                     '%mautic.mailer_encryption%',
                     '%mautic.mailer_user%',
                     '%mautic.mailer_password%',
+                    '%mautic.mailer_postal_webhook_signing_key%',
                 ],
                 'tag' => 'mautic.email_transport',
                 'tagArguments' => [
@@ -39,5 +40,8 @@ return [
                 ],
             ],
         ],
+    ],
+    'parameters' => [
+        'mailer_postal_webhook_signing_key' => '',
     ],
 ];
