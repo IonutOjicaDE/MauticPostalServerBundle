@@ -1,19 +1,25 @@
-# How to install? (Manual Mode)
+# MauticPostalServerBundle
+This is a fork of [LucasCCS/postal_server_api_transport_for_mautic](https://github.com/LucasCCS/postal_server_api_transport_for_mautic).
 
-1 - Go to the plugins folder, add a new folder called MauticPostalServerBundle\
-2 - Reload the plugin list using the command:\
-```
-rm -rf var/cache/*
+This plugin makes it possible to use Postal as SMTP sender in Mautic and to receive bounces and complaints via webhook.
 
-php bin/console mautic:plugins:reload
-```
+### Tested with
+- Postal: 2.1.2
+- Mautic: 4.4.10
 
-OR \
 
-Go to /s/plugins and click Install/Upgrade Plugins\
+# How to install?
 
----
-# Via composer
-```
-composer require lucascosta/postal-server-api-transport-for-mautic
-```
+1. Go to the plugins folder and clone this repository `git clone https://github.com/Pacerino/MauticPostalServerBundle.git`
+2. On your Postal installation, execute `postal default-dkim-record`
+3. Copy the key/part after `p=` without the semicolon
+4. Edit the `config/Config.php` and put the Key into the Line 45 `'mailer_postal_webhook_signing_key' => 'KEY_GOES_HERE',` save and exit
+5. Clear the cache `rm -rf var/cache/*`
+6. Reload the plugins via console `php bin/console mautic:plugins:reload` or go to `https://mymautic.org/s/plugins` and click _Install/Upgrade Plugins_
+7. In your Mautic, switch the Sender to `Postal` and fill out your credentials
+8. In Postal add the webhook `https://mymautic.org/mailer/postal/callback` and select the `MessageDeliveryFailed` and `MessageBounced` events
+
+## Contributors
+
+- [LucasCCS](https://github.com/LucasCCS) - Original Idea
+- [IonutOjicaDE](https://github.com/IonutOjicaDE) - Bugfix and Testing
