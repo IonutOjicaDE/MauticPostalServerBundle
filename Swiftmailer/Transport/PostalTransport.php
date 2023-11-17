@@ -90,7 +90,7 @@ class PostalTransport extends \Swift_SmtpTransport implements CallbackTransportI
         $rsa_key = openssl_pkey_get_public($rsa_key_pem) ?: '';
 
         $signature = '';
-        $encodedSignature = $request->header('x-postal-signature');
+        $encodedSignature = $request->headers->get('X-POSTAL-SIGNATURE', '');
         if (is_string($encodedSignature)) {
             $signature = base64_decode($encodedSignature);
         }
