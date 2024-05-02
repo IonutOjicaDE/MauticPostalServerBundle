@@ -1,6 +1,6 @@
 {
-    "name": "pacerino/mautic-postal-server-bundle",
-    "description": "Integrate Swiftmailer transport for Postal Server",
+    "name": "ionutojicade/mautic-postal-server-bundle",
+    "description": "Integrate Swiftmailer transport for Postal Server API",
     "type": "library",
     "authors": [
         {
@@ -10,6 +10,10 @@
         {
             "name": "Alexander Cus",
             "email": "pacerino@pa0x43.me"
+        },
+        {
+            "name": "Ionut Ojica",
+            "email": "contact@ionutojica.com"
         }
     ],
     "minimum-stability": "dev",
