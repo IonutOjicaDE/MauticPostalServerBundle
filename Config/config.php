@@ -20,7 +20,6 @@ return [
                     'translator',
                     'mautic.email.model.transport_callback',
                     'mautic.postal.guzzle.client',
-                    '%mautic.mailer_encryption%',
                     '%mautic.mailer_postal_max_batch_limit%',
                     '%mautic.mailer_postal_batch_recipient_count%',
                     '%mautic.mailer_postal_webhook_signing_key%',
