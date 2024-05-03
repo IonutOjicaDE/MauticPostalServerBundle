@@ -1,7 +1,7 @@
 # MauticPostalServerBundle
 This is a fork of [Pacerino/MauticPostalServerBundle](https://github.com/Pacerino/MauticPostalServerBundle) which is a fork of [LucasCCS/postal_server_api_transport_for_mautic](https://github.com/LucasCCS/postal_server_api_transport_for_mautic).
 
-This plugin makes it possible to use Postal as SMTP sender in Mautic and to receive bounces and complaints via webhook.
+This plugin makes it possible to use Postal as API sender in Mautic and to receive bounces and complaints via webhook.
 
 ### Tested with
 - Postal: I must look, as I turned of my server
