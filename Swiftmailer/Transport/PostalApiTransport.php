@@ -104,23 +104,16 @@ class PostalApiTransport extends AbstractTokenArrayTransport implements \Swift_T
 
         try {
             $count = $this->getBatchRecipientCount($message);
-
             $preparedMessage = $this->getMessage($message);
-
             $payload = $this->getPayload($preparedMessage);
-
-            // var_dump($payload);die;
-
             $endpoint = sprintf('%s/api/v1/send/message', urlencode($this->domain));
 
             $response = $this->client->post(
                 'https://'.$endpoint,
                 [
-                    // 'auth' => ['api', $this->apiKey, 'basic'],
                     'headers' => [
                         'X-Server-API-Key' => $this->apiKey
                     ],
-                    // 'body' => json_encode($payload),
                     RequestOptions::JSON => $payload
                 ]
             );
