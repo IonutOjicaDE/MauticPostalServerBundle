@@ -1,5 +1,5 @@
 {
-    "name": "ionutojicade/mautic-postal-server-bundle",
+    "name": "lucascosta/postal-server-api-transport-for-mautic",
     "description": "Integrate Swiftmailer transport for Postal Server API",
     "type": "library",
     "authors": [
