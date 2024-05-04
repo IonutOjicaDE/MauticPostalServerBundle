@@ -16,10 +16,10 @@ return [
             'mautic.transport.postal_api' => [
                 'class' => \MauticPlugin\MauticPostalServerBundle\Swiftmailer\Transport\PostalApiTransport::class,
                 'serviceAlias' => 'swiftmailer.mailer.transport.%s',
-                'arguments'    => [
-                    'translator',
+                'arguments' => [
                     'mautic.email.model.transport_callback',
                     'mautic.postal.guzzle.client',
+                    'translator',
                     '%mautic.mailer_postal_max_batch_limit%',
                     '%mautic.mailer_postal_batch_recipient_count%',
                     '%mautic.mailer_postal_webhook_signing_key%',
@@ -32,8 +32,8 @@ return [
                 'tag' => 'mautic.email_transport',
                 'tagArguments' => [
                     \Mautic\EmailBundle\Model\TransportType::TRANSPORT_ALIAS => 'mautic.email.config.mailer_transport.postal_api',
-                    \Mautic\EmailBundle\Model\TransportType::FIELD_HOST      => true,
-                    \Mautic\EmailBundle\Model\TransportType::FIELD_API_KEY   => true,
+                    \Mautic\EmailBundle\Model\TransportType::FIELD_HOST => true,
+                    \Mautic\EmailBundle\Model\TransportType::FIELD_API_KEY => true,
                 ],
             ],
             'mautic.postal.guzzle.client' => [
