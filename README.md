@@ -4,8 +4,8 @@ This is a fork of [Pacerino/MauticPostalServerBundle](https://github.com/Pacerin
 This plugin makes it possible to use Postal as API sender in Mautic and to receive bounces and complaints via webhook.
 
 ### Tested with
-- Postal: I must look, as I turned of my server
-- Mautic: 4.4.11
+- Postal: 3.3.3
+- Mautic: 4.4.12
 
 
 # How to install?
@@ -23,3 +23,4 @@ This plugin makes it possible to use Postal as API sender in Mautic and to recei
 
 - [LucasCCS](https://github.com/LucasCCS) - Original Idea
 - [Pacerino](https://github.com/Pacerino) - Implementing, Bugfix and Testing
+- [Fabio from Canada](https://github.com/fanpero87) - Testing
